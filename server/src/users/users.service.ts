@@ -23,6 +23,10 @@ export class UsersService {
     return this.userModel.findById(id).exec();
   }
 
+  findOneByLogin(login: string): Promise<IUser> {
+    return this.userModel.findOne({login}).exec();
+  }
+
   update(id: ObjectId, updateUserDto: UpdateUserDto): Promise<IUser> {
     return this.userModel.findByIdAndUpdate(id, updateUserDto, { new: false }).exec();
   }
